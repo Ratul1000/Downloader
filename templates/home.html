@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    {%if filenames %}
+        {% for name in filenames %}
+            <a href="{{url_for('download', name=name)}}">{{name}}</a>
+        {%endfor%}
+    {%endif%}
+    <a href="{{url_for('progress')}}"><button>Progress</button></a>
+    <form action="#" method="post">
+        <input type="text" name="link" placeholder="Enter download link">
+        <input type="number" name="speed" placeholder="Enter Speed" min="1" max="100">
+        <input type="text" name="filename" placeholder="Enter File name with extension">
+        <input type="submit" value="Download">
+    </form>
+</body>
+</html>
