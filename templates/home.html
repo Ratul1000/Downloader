@@ -9,7 +9,7 @@
 <body>
     {%if filenames %}
         {% for name in filenames %}
-            <a href="{{url_for('download', name=name)}}">{{name}}</a>
+            <p>{{name}} downloaded</p>
         {%endfor%}
     {%endif%}
     <a href="{{url_for('progress')}}"><button>Progress</button></a>
