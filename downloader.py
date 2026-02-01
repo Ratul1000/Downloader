@@ -2,6 +2,8 @@ import requests
 from flask import Flask, render_template, send_from_directory, request,redirect,url_for
 from pathlib import Path
 import threading
+import shutil
+from pathlib import Path
 
 file_size = 0
 dowwnload_speed = 0
@@ -27,6 +29,11 @@ def download_file(link, speed, filename):
         dowwnload_speed+= temp
     filenames.append(file_name)
     dowwnload_speed = 0
+    file_path = Path.cwd()/file_name
+    new_path = Path.cwd()/'..'/'drive'/'MyDrive'/file_name
+
+    shutil.move(file_path, new_path)
+    
 app = Flask(__name__, static_url_path='/')
 
 filenames = []
