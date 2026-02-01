@@ -48,4 +48,4 @@ def progress():
     return render_template('progress.html', current = dowwnload_speed, total = file_size)
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(port=5000)
