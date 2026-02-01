@@ -33,7 +33,7 @@ def download_file(link, speed, filename):
     new_path = Path.cwd()/'..'/'drive'/'MyDrive'/file_name
 
     shutil.move(file_path, new_path)
-    
+
 app = Flask(__name__, static_url_path='/')
 
 filenames = []
@@ -52,7 +52,7 @@ def download(name):
 
 @app.route('/progress')
 def progress():
-    return render_template('progress.html', current = dowwnload_speed, total = file_size)
+    return render_template('progress.html', current = dowwnload_speed, total = file_size,filenames = filenames)
 
 if __name__=='__main__':
     app.run(port=5000)
